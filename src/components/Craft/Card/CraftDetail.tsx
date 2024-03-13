@@ -1,7 +1,8 @@
 "use client"
+import { CraftDetailResponseDto } from "@/Dtos/Response/CraftDetailResponseDto"
 import Link from "next/link"
 
-export default function CardCraftDetail({ craft } : {craft: any}) {
+export default function CraftDetail({ craft } : {craft: CraftDetailResponseDto}) {
     return (
         <div>
             <section>
@@ -32,7 +33,7 @@ export default function CardCraftDetail({ craft } : {craft: any}) {
             <section>
                 <button onClick={() => {
                 }}>
-                    <Link href={"/artesanias"}>Volver</Link>
+                    <Link href={"/craft"}>Volver</Link>
                 </button>
             </section>
         </div>
