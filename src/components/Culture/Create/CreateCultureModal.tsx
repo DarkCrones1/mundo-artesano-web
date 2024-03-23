@@ -1,15 +1,17 @@
 "use client";
 
-import { CategoryCreateRequestDto } from "@/Dtos/Request/Create/CategoryCreateRequestDto";
-import { PostCategory } from "@/utils/Category/postCategory";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { CultureCreateRequestDto } from "@/Dtos/Request/Create/CultureCreateRequestDto";
+import { PostCulture } from "@/utils/Culture/postCulture";
+import { ChangeEvent, FormEvent, useState } from "react";
 
-interface AddCategoryProps {
-  onSubmitSuccess: () => void; // Callback para manejar el éxito del envío
+interface AddCultureProps {
+  onSubmitSuccess: () => void;
 }
 
-export default function AddCategoryCard({ onSubmitSuccess }: AddCategoryProps) {
-  const [formData, setFormData] = useState<CategoryCreateRequestDto>({
+export default function CreateCultureModal({
+  onSubmitSuccess,
+}: AddCultureProps) {
+  const [formData, setFormData] = useState<CultureCreateRequestDto>({
     Name: "",
     Description: "",
   });
@@ -25,8 +27,8 @@ export default function AddCategoryCard({ onSubmitSuccess }: AddCategoryProps) {
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await PostCategory(formData);
-      onSubmitSuccess(); // Llamamos a la función de éxito del envío
+      await PostCulture(formData);
+      onSubmitSuccess();
     } catch (error) {
       console.error("Error:", error);
     }
@@ -37,18 +39,18 @@ export default function AddCategoryCard({ onSubmitSuccess }: AddCategoryProps) {
       <input
         type="text"
         name="Name"
-        placeholder="Category Name"
+        placeholder="Nombre"
         value={formData.Name}
         onChange={handleChange}
       />
       <input
         type="text"
         name="Description"
-        placeholder="Category Description"
+        placeholder="Descripción"
         value={formData.Description}
         onChange={handleChange}
       />
-      <button type="submit">Submit</button>
+      <button type="submit">Agregar</button>
     </form>
   );
 }

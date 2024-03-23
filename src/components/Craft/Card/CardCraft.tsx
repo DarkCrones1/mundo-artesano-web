@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function CardCraft({ craft }: { craft: CraftResponseDto }) {
   return (
-    <div>
+    <div className="container border-collapse">
       <section>
         <h1>{craft.Id}</h1>
         <h3>{craft.Name}</h3>
@@ -19,9 +19,7 @@ export default function CardCraft({ craft }: { craft: CraftResponseDto }) {
         />
       </section>
       <section>
-        <button onClick={() => {}}>
-          <Link href={`/craft/${craft.Id}`}>Click</Link>
-        </button>
+        <Link href={`/craft/${craft.Id}`} key={craft.Id}>Click</Link>
       </section>
     </div>
   );

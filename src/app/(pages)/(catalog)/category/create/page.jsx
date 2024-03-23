@@ -1,6 +1,6 @@
 "use client"
 
-import AddCategoryCard from '@/components/Category/Modal/Create/CreateCategoryModal';
+import CreateCategory from '@/components/Category/Create/CreateCategory';
 import { useState } from 'react';
 
 export default function Page() {
@@ -13,7 +13,7 @@ export default function Page() {
     return (
         <div>
             {!isSubmitted ? (
-                <AddCategoryCard onSubmitSuccess={PostCategorySuccess} />
+                <CreateCategory onSubmitSuccess={PostCategorySuccess} />
             ) : (
                 <p>Formulario enviado con éxito</p>
             )}
