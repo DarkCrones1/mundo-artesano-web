@@ -79,7 +79,7 @@ export default function CreateCraft({ onSubmitSuccess }: AddCraftProps) {
     }
   };
 
-    // Se ejecuta el efecto de hacer el await de la imagen cuando cambia xD
+  // Se ejecuta el efecto de hacer el await de la imagen cuando cambia xD
   useEffect(() => {
     const uploadImage = async () => {
       try {
@@ -167,6 +167,9 @@ export default function CreateCraft({ onSubmitSuccess }: AddCraftProps) {
     useState<BaseCatalogCreateRequestDto>({} as BaseCatalogCreateRequestDto);
 
   const handleAddProperty = () => {};
+
+  console.log(categoryIds);
+  console.log(techniqueTypeIds);
 
   return (
     <CraftModal

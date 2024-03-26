@@ -27,7 +27,7 @@ export function CraftTechniqueTypesIds({
           htmlFor="technique"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
-          Técnicas
+          Técnicas Artesanales
         </label>
         <div>
           {unselectedTechnique.length > 0 ? (
@@ -72,9 +72,9 @@ export function CraftTechniqueTypesIds({
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               ></path>
             </svg>
             Agregar Técnica
@@ -87,16 +87,36 @@ export function CraftTechniqueTypesIds({
           {selectedTechnique
             .sort((a, b) => a.Name.localeCompare(b.Name))
             .map((technique, index) => (
-              <li
-                className="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300 flex-col"
-                onClick={() => handleRemoveTechnique(technique.Id)}
+              <span
+                className="bg-blue-100 text-blue-800 text-xs font-medium me-2 mb-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300 flex-col"
                 key={index}
-                style={{
-                  cursor: "pointer",
-                }}
               >
                 {technique.Name}
-              </li>
+                <button
+                  type="button"
+                  className="inline-flex items-center p-1 ms-2 text-sm text-blue-400 bg-transparent rounded-sm hover:bg-blue-200 hover:text-blue-900 dark:hover:bg-blue-800 dark:hover:text-blue-300"
+                  data-dismiss-target="#badge-dismiss-default"
+                  aria-label="Remove"
+                  onClick={() => handleRemoveTechnique(technique.Id)}
+                >
+                  <svg
+                    className="w-2 h-2"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 14"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                    />
+                  </svg>
+                  <span className="sr-only">Remove badge</span>
+                </button>
+              </span>
             ))}
         </ul>
       </div>
